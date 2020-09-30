@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"regexp"
 	"strings"
 )
 
@@ -33,7 +34,12 @@ func main() {
 }
 
 func win2unix(path string) string {
-	path = strings.Replace(path, "\\\\", "/", 1)
+	compile, _ := regexp.Compile("([A-Z]+)(:\\\\)")
+	submatch := compile.FindAllStringSubmatch(path, 1)
+	path = compile.ReplaceAllString(path, strings.ToLower(submatch[0][1]) + "${2}")
+
+	path = strings.Replace(path, ":\\\\", "/", 1)
+	path = strings.Replace(path, ":\\", "/", 1)
 	path = strings.ReplaceAll(path, "\\", "/")
 	return "/mnt/" + path
 }
