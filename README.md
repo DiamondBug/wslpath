@@ -9,7 +9,7 @@ Just download executable file ```wslpath``` and put into ```/usr/bin```
 
 ### How to use
 ```shell
-wslpath -p C:\\User\peter
+wslpath -p "C:\\User\peter"
 wslpath -p /mnt/C/User/peter
 ```
 Output:
@@ -21,5 +21,5 @@ C:\\User\peter
 
 ### Skill
 ```
-some/command $(wslpath -p C:\\User\peter)
+some/command $(wslpath -p "C:\\User\peter")
 ```

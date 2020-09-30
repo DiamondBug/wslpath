@@ -6,7 +6,7 @@
 
 ### 如何使用
 ```shell
-wslpath -p C:\\User\peter
+wslpath -p "C:\\User\peter"
 wslpath -p /mnt/C/User/peter
 ```
 输出:
@@ -18,5 +18,5 @@ C:\\User\peter
 
 ### 技巧
 ```
-some/command $(wslpath -p C:\\User\peter)
+some/command $(wslpath -p "C:\\User\peter")
 ```
